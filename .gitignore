@@ -1,4 +1,5 @@
-RuleCreator/
+rules/
 *.ipynb
 *.cer
 .vscode/
+.gitignore
