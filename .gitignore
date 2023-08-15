@@ -1,3 +1,4 @@
 RuleCreator/
 *.ipynb
 *.cer
+.vscode/
