@@ -1,25 +1,36 @@
 import easygui
-import pandas as pd
-import openpyxl
-from modules.dataGrabber import get_filehash, get_filename, get_internalname, get_filedescription,get_productname,get_fileversion
+import json
+from modules.dataGrabber import get_fileattributes, get_certificates
+from modules.mongo import insert_data
 import os
-import subprocess
 
 
-# Promp user to select file they want metadata from. 
-file = easygui.fileopenbox(default=str())
+# Prompt user to select files they want metadata from.
+import easygui
+files = easygui.fileopenbox(default=str(), multiple=True)
 
-#Get Fileinformation
-filename = get_filename(file)
-filehash = get_filehash(file)
-internalname = get_internalname(file)
-fileversion = get_fileversion(file)
-filedescription = get_filedescription(file)
-productname = get_productname(file)
+# Loop through each file and get its information.
+for file in files:
+    certoutput = r"C:\Users\osjimene\Projects\RuleCreator\Certificates"
+    
 
+    # Get file information.
+    result = get_fileattributes(file, certoutput)
 
-#Parse collected data into a CSV format. 
+    # Parse the information into a json format.
+    result_dict = {}
+    for line in result.split('\n'):
+        if ':' in line:
+            key, value = line.split(':', 1)
+            result_dict[key.strip()] = value.strip()
 
-#Open the desired csv/excel and append the new information to excel
-print(f"Filename: {filename} \nFileHash: {filehash} \nInternalName: {internalname} \nVersion: {fileversion} \nFileDescription: {filedescription} \nProductName: {productname} ")
-#Save and close the program.
+    # Get the number of files in the certificate folder.
+    num_files = len([f for f in os.listdir(certoutput) if os.path.isfile(os.path.join(certoutput, f))])
+
+    # Run a for loop to get the certificates in the certificate folder.
+    for i in range(num_files):
+        result = get_certificates(certoutput)
+        result_dict.update(result)
+
+    # Insert the data into the database.
+    insert_data(result_dict)
