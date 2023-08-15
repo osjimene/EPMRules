@@ -4,20 +4,14 @@ from modules.mongo import insert_data
 import os
 
 
-    # certoutput = r"C:\Users\osjimene\Projects\RuleCreator\Certificates"
-    # import os
-
-    # certoutput = os.path.join(os.getcwd(), 'Certificates')
-
 # Prompt user to select files they want metadata from.
 import easygui
 files = easygui.fileopenbox(default=str(), multiple=True)
 
+
 # Loop through each file and get its information.
 for file in files:
-    certoutput = r"C:\Users\osjimene\Projects\RuleCreator\Certificates"
-    import os
-
+    # Create a folder to store the certificates in.
     certoutput = os.path.join(os.getcwd(), 'Certificates')
     
 

@@ -1,7 +1,7 @@
 import os
 import subprocess
 import shutil
-import time
+
 
 
 #Get the filename of the file
@@ -36,8 +36,9 @@ def get_productname(file):
     productname = result.stdout
     return productname
 def get_fileattributes(file, certoutput):
+    epmModule = os.path.join(os.getcwd(), 'modules', 'EpmTools', 'EpmCmdlets.dll')
     hashalgorithm = "Sha256"
-    result = subprocess.run(["powershell", rf"Import-Module 'C:\Users\osjimene\Projects\RuleCreator\modules\EpmTools\EpmCmdlets.dll'; Get-fileAttributes -FilePath '{file}' -CertOutputPath {certoutput} -HashAlgorithm '{hashalgorithm}'"],capture_output=True, text=True)
+    result = subprocess.run(["powershell", rf"Import-Module {epmModule}; Get-fileAttributes -FilePath '{file}' -CertOutputPath {certoutput} -HashAlgorithm '{hashalgorithm}'"],capture_output=True, text=True)
     fileattributes = result.stdout
     return fileattributes
 
@@ -56,7 +57,7 @@ def move_cert(src_folder, dst_folder):
 
 
 def get_certificates(certoutput):
-    certstore = r"C:\Users\osjimene\Projects\RuleCreator\Tmp"
+    certstore = os.path.join(os.getcwd(), 'Tmp')
     file = subprocess.run(["powershell", f"ls {certoutput} | Select-Object -Last 1 -ExpandProperty Name"],capture_output=True, text=True)
     encode = subprocess.run(["powershell", f"ls {certoutput} | Select-Object -Last 1 | Get-Content"],capture_output=True, text=True)
     move_cert(certoutput, certstore)
