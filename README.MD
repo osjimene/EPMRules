@@ -84,7 +84,11 @@ This will create a new `Database` object and use it to store the extracted metad
 
 Make sure to replace `path/to/file` with the actual path to the file that you want to extract metadata from. You can also customize the code to fit your specific needs
 
-
+## Features that need to be worked on:
+- HTML/Webpage display of all current items in uploaded db.
+- Rule selection criteria (Give me the json object with only XYZ parameters, leave others blank)
+- App containerization with Powershell dependencies. 
+- Rule Comparison to functioning EPM rule. (Compare a potential rule against a file or set of files for compatability [Reduces Troubleshooting time])
 
 ## License
 
