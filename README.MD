@@ -40,8 +40,12 @@ Note: For further simplicity in getting certificates tied to files, there is a /
 -For MongoDB.py, notice the Connection string information is referencin the System Environment variable `Connection_String` Replace this and other similar values acordingly. (Any values starting with os.getenv are environment variables specific to your machine)
 
 ### Usage
+The program is as simple as running the `Main.py` file. You will immediately be prompted with a popup explorer window where you can choose 1 or many different exe files to extract medatada and certificates from. 
 
-Here's an example of how to use the EPM Rule Metadata Puller to extract metadata from a file:
+All certificate information will be stored in whichever db you choose in a JSON format with the certificate title as the key and the Base64 encoding as the Value. These values can be saved directly to a .cer file and will function as any normal certificate would. 
+
+
+If you want to poke into the code and customize it to your need or flows, here's an example of how to use the EPM Rule Metadata Pullers script to extract metadata from a file:
 
 ```python
 from DataGrabber import DataGrabber
