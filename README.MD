@@ -1,33 +1,38 @@
-Create a Virtual Environment:
+# Project Name
 
-Open a command prompt and navigate to the directory where you want to create your virtual environment. Then run the following command:
+EPMRules is a Python Script that facilitates the use of PowerShell Commandlets iteratively over several executable files. It is designed to be easy to use and deploy in a cloud environment to store uploaded file metadata that can be further analyzed to create elevation rules for Endpoint Privilege Management Tooling.
 
-python -m venv <name_of_your_venv>
+The package includes several modules that can be used individually or together to perform various tasks. These modules include [list some of the modules here]. 
 
-3. Activate the Virtual Environment:
+Project Name is designed to be used by developers who need to perform [describe the specific task that the package is designed for]. It can be easily integrated into existing Python projects and customized to fit the needs of the user.
 
-Once the virtual environment is created, you can activate it by running the following command:
+Overall, Project Name is a powerful and flexible tool for [describe the task that the package is designed for]. Whether you're a beginner or an experienced developer, Project Name can help you get the job done quickly and efficiently. 
 
-<name_of_your_venv>\Scripts\activate
+## Table of Contents
 
-4. Install Packages:
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Once the virtual environment is activated, you can install any packages you need using the pip command. For example, to install the requests package, you can run the following command:
+## Getting Started
 
-pip install requests
+### Prerequisites
 
+List any prerequisites that users need to have installed before using your project.
 
-Structure: 
-├── main.py
-├── modules
-│   ├── module1.py
-│   ├── module2.py
-│   └── module3.py
-├── tests
-│   ├── test_module1.py
-│   ├── test_module2.py
-│   └── test_module3.py
-└── utils
-    ├── util1.py
-    ├── util2.py
-    └── util3.py
+### Installation
+
+Provide step-by-step instructions on how to install your project.
+
+### Usage
+
+Provide examples and instructions on how to use your project.
+
+## Contributing
+
+Explain how others can contribute to your project.
+
+## License
+
+This project is licensed under the [LICENSE NAME HERE] License - see the [LICENSE.md](LICENSE.md) file for details.
